@@ -7,7 +7,7 @@ import { useState } from 'react';
 interface FoodProps {
   food: FoodDataProps;
   handleDelete: (id: number) => {};
-  handleEditFood: (props: FoodProps) => {};  
+  handleEditFood: (props: FoodDataProps) => {};  
 }
 
 interface FoodDataProps {
@@ -25,7 +25,7 @@ export function Food (props: FoodProps) {
 
   async function toggleAvailable () {
     await api.put(`/foods/${food.id}`, {
-      ...props,
+      ...food,
       available: !isAvailable,
     });
 
@@ -33,11 +33,9 @@ export function Food (props: FoodProps) {
   }
 
   function setEditingFood () {
-    const { handleEditFood } = props;
-    handleEditFood(props);
+    const { food, handleEditFood } = props;
+    handleEditFood(food);
   }
-
-  console.log(food);
 
   return (
     <Container available={isAvailable}>

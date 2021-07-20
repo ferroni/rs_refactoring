@@ -6,8 +6,8 @@ import { useState } from 'react';
 
 interface FoodProps {
   food: FoodDataProps;
-  handleDelete: (id: number) => {};
-  handleEditFood: (props: FoodDataProps) => {};  
+  handleDelete: (id: number) => void;
+  handleEditFood: (props: FoodDataProps) => void;  
 }
 
 interface FoodDataProps {
